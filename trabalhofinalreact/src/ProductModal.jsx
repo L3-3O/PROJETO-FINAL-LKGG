@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ProductModal.css'; 
+import './ProductModal.css';
 
 function ProductModal({ isOpen, onClose, addProduct, editProduct, productToEdit }) {
   const [name, setName] = useState('');
@@ -9,8 +9,8 @@ function ProductModal({ isOpen, onClose, addProduct, editProduct, productToEdit 
   useEffect(() => {
     if (productToEdit) {
       setName(productToEdit.name);
-      setPrice(productToEdit.price.toString().replace('.', ','));
-      setImage(null); 
+      setPrice(productToEdit.price.toFixed(2).replace('.', ','));
+      setImage(null);
     } else {
       setName('');
       setPrice('');
@@ -33,30 +33,30 @@ function ProductModal({ isOpen, onClose, addProduct, editProduct, productToEdit 
       return;
     }
 
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const product = { name, price: numericPrice, image: reader.result };
-      if (productToEdit) {
-        editProduct(product);
-      } else {
-        addProduct(product);
-      }
-      setName('');
-      setPrice('');
-      setImage(null);
-      onClose(); 
-    };
-
     if (image) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const product = { name, price: numericPrice, image: reader.result };
+        if (productToEdit) {
+          editProduct(product);
+        } else {
+          addProduct(product);
+        }
+        resetForm();
+      };
       reader.readAsDataURL(image);
-    } else {
+    } else if (productToEdit) {
       const product = { name, price: numericPrice, image: productToEdit.image };
       editProduct(product);
-      setName('');
-      setPrice('');
-      setImage(null);
-      onClose();
+      resetForm();
     }
+  };
+
+  const resetForm = () => {
+    setName('');
+    setPrice('');
+    setImage(null);
+    onClose();
   };
 
   return (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import './Cart.css';
 import Cart from './Cart.jsx';
+import ProductModal from './ProductModal.jsx'; // Certifique-se de importar o ProductModal corretamente
 import logo from './assets/Logo.png';
 import bibliotecaImg from './assets/biblioteca.png'; 
 import searchIcon from './assets/search.svg';
@@ -105,14 +106,14 @@ function App() {
           <button>
             <img src={addIcon} alt="Cadastrar Produto" className="logo-btn" onClick={openModal} />
           </button>
-          <button onClick={toggleCart} className="cart-button">
-            <img src={bibliotecaImg} alt="Carrinho" className="cart-icon" />
-          </button>
         </div>
       </header>
 
       <div className="banner">
         <span>Bem vindo ao Good Books!</span>
+        <button onClick={toggleCart} className="cart-button">
+          <img src={bibliotecaImg} alt="Carrinho" className="cart-icon" />
+        </button>
       </div>
 
       <main>
@@ -164,3 +165,4 @@ function App() {
 }
 
 export default App;
+
