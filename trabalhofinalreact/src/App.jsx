@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import './Cart.css';
+import Cart from './Cart.jsx';
 import logo from './assets/Logo.png';
 import bibliotecaImg from './assets/biblioteca.png'; 
 import searchIcon from './assets/search.svg';
@@ -42,7 +44,16 @@ function App() {
   ]);
   const [cartItems, setCartItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [productToEdit, setProductToEdit] = useState(null);
+
+  const addProductToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+
+  const removeProductFromCart = (index) => {
+    setCartItems(cartItems.filter((item, i) => i !== index));
+  };
 
   const addProduct = (product) => {
     setProducts([...products, product]);
@@ -74,8 +85,12 @@ function App() {
     setIsModalOpen(true);
   };
 
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
-    <div>
+    <div className="app-container">
       <header>
         <div className="logo-container">
           <img src={logo} className="logo" alt="Good Books Logo" />
@@ -90,12 +105,14 @@ function App() {
           <button>
             <img src={addIcon} alt="Cadastrar Produto" className="logo-btn" onClick={openModal} />
           </button>
+          <button onClick={toggleCart} className="cart-button">
+            <img src={bibliotecaImg} alt="Carrinho" className="cart-icon" />
+          </button>
         </div>
       </header>
 
       <div className="banner">
         <span>Bem vindo ao Good Books!</span>
-        <img src={bibliotecaImg} alt="Carrinho" className="cart-icon" />
       </div>
 
       <main>
@@ -112,7 +129,7 @@ function App() {
                   ? product.price.toFixed(2)
                   : 'Preço Inválido'}
               </p>
-              <button className="btn-add" onClick={() => addProduct(product)}>Adicionar ao Carrinho</button>
+              <button className="btn-add" onClick={() => addProductToCart(product)}>Adicionar ao Carrinho</button>
               <button className="btn-edit" onClick={() => openEditModal(product, index)}>Editar</button>
               <button className="btn-remove" onClick={() => removeProduct(index)}>Remover</button>
             </div>
@@ -125,6 +142,23 @@ function App() {
           &copy; 2025 Good Books | <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a>
         </p>
       </footer>
+
+      {isCartOpen && (
+        <Cart 
+          cartItems={cartItems} 
+          removeProductFromCart={removeProductFromCart} 
+        />
+      )}
+
+      {isModalOpen && (
+        <ProductModal 
+          isOpen={isModalOpen} 
+          onClose={closeModal} 
+          addProduct={addProduct} 
+          editProduct={editProduct} 
+          productToEdit={productToEdit} 
+        />
+      )}
     </div>
   );
 }
