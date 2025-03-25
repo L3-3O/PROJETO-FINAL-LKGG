@@ -1,12 +1,20 @@
 import React from 'react';
 import './Cart.css';
 
-function Cart({ cartItems, removeProductFromCart }) {
+function Cart({ cartItems, removeProductFromCart, clearCart }) {
+
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => {
       const itemPrice = typeof item.price === 'number' ? item.price : 0;
       return total + itemPrice;
     }, 0).toFixed(2);
+  };
+
+  const finalizePurchase = () => {
+    if (window.confirm("Tem certeza de que deseja finalizar as compras?")) {
+      clearCart();
+      alert("Compra finalizada! O carrinho foi esvaziado.");
+    }
   };
 
   return (
@@ -24,7 +32,12 @@ function Cart({ cartItems, removeProductFromCart }) {
                   ? item.price.toFixed(2)
                   : 'Preço Inválido'}
               </p>
-              <button className="btn-remove-cart" onClick={() => removeProductFromCart(index)}>Remover</button>
+              <button
+                className="btn-remove-cart"
+                onClick={() => removeProductFromCart(index)}
+              >
+                Remover
+              </button>
             </div>
           </li>
         ))}
@@ -33,6 +46,16 @@ function Cart({ cartItems, removeProductFromCart }) {
         <h3>Total:</h3>
         <p>R$ {getTotalPrice()}</p>
       </div>
+      
+      {cartItems.length > 0 && (
+        <button
+          id="finalize-btn"
+          className="finalize-btn"
+          onClick={finalizePurchase}
+        >
+          Finalizar Compras
+        </button>
+      )}
     </div>
   );
 }

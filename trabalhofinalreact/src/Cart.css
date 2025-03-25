@@ -67,3 +67,17 @@
 .btn-remove-cart:hover {
   background-color: #c82333;
 }
+.finalize-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.finalize-btn:hover {
+  background-color: #45a049;
+}
