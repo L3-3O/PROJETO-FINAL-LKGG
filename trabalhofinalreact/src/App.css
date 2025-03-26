@@ -18,7 +18,6 @@ header {
   align-items: center;
   padding: 10px 60px;
   color: white;
-<<<<<<< HEAD
   width: 100vw;
   position: relative;
   left: 50%;
@@ -33,15 +32,6 @@ header {
 .logo {
   width: 100px; 
   margin-right: 10px;
-=======
-}
-
-/* Menu principal*/
-
-.logo {
-  width: 10%;
-  margin-bottom: 10px;
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
 }
 
 .header-icons {
@@ -86,7 +76,6 @@ header button {
   font-family: "Poppins", serif;
   font-weight: 800;
   font-style: italic;
-<<<<<<< HEAD
   width: 100vw;
   position: relative;
   left: 50%;
@@ -94,11 +83,6 @@ header button {
 }
 
 
-=======
-}
-
-/* Organização dos Produtos */
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -123,11 +107,7 @@ header button {
   transform: translateY(-5px);
 }
 
-<<<<<<< HEAD
 .product-img img {
-=======
-.product-img img{
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
   margin-top: 10px;
   width: 250px;
   object-fit: cover;
@@ -159,11 +139,7 @@ header button {
   width: 60%;
 }
 
-<<<<<<< HEAD
 
-=======
-/* Link de redirecionamento */
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
 
 .btn-buy {
   text-decoration: none;
@@ -182,11 +158,7 @@ header button {
   color: #fff;
 }
 
-<<<<<<< HEAD
 
-=======
-/* Rodapé */
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
 
 footer {
   background-color: #003366;
@@ -205,33 +177,20 @@ footer a:hover {
   text-decoration: underline;
 }
 
-<<<<<<< HEAD
 
 
 @media (max-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
-=======
-/* Responsividade Geral*/
-
-@media (max-width: 1024px) {
-  .product-grid {
-      grid-template-columns: repeat(3, 1fr);
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
   }
 
   .logo {
     width: 15%;
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
 }
 
 @media (max-width: 768px) {
   .header-icons {
-<<<<<<< HEAD
     gap: 10px;
   }
 
@@ -241,23 +200,11 @@ footer a:hover {
 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-=======
-      gap: 10px;
-  }
-
-  .search-bar {
-      margin: 0 20px;
-  }
-
-  .product-grid {
-      grid-template-columns: repeat(2, 1fr);
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
   }
 
   .logo {
     width: 0%;
   }
-<<<<<<< HEAD
 }
 
 @media (max-width: 480px) {
@@ -279,30 +226,6 @@ footer a:hover {
   .banner {
     font-size: 20px;
     padding: 20px;
-=======
-
-}
-
-@media (max-width: 480px) {
-  .header {
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
-  }
-
-  .search-bar {
-      flex: 1;
-      margin: 0;
-  }
-
-  .product-grid {
-      grid-template-columns: 1fr;
-  }
-
-  .banner {
-      font-size: 20px;
-      padding: 20px;
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
   }
 
   .logo {
@@ -313,7 +236,6 @@ footer a:hover {
   .logo-btn {
     width: 40px;
   }
-<<<<<<< HEAD
 }
 
 .btn-edit {
@@ -355,6 +277,3 @@ footer a:hover {
   width: 50px; 
   height: 50px; 
 }
-=======
-}
->>>>>>> cda11dafbd633d8d81c8b76121b454adfb60505b
